@@ -1,0 +1,66 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.main-wrap {
+	margin: 20px;
+	padding: 20px;
+	background-color: #eee;
+	border: 1px solid #999;
+	min-width: 520px;
+}
+
+.main-wrap:before,
+.main-wrap:after {
+	content: "";
+	display: table;
+}
+.main-wrap:after {
+	clear: both;
+}
+
+.main-wrap > div {
+	background-color: #fff;
+	border: 1px solid #999;
+	padding: 19px;
+}
+
+.logo-wrap {
+	float: left;
+	width: 160px;
+}
+.team-logo {
+	float: left;
+	width: 80px;
+	height: 80px;
+	border: 1px solid #999;
+	background-color: #eee;
+}
+h1 {
+	float: right;
+	font-size: 16px;
+}
+
+
+.text-wrap {
+	margin-left: 220px;
+	margin-right: 140px;	
+}
+.text-wrap h2 {
+	margin-bottom: 10px;
+}
+.text-wrap p {
+	line-height: 120%;
+	margin-bottom: 7px;
+}
+.team-wrap {
+	float: right;
+	width: 80px;
+}
+.team-wrap > img {
+	display: block;
+	width: 80px;
+	height: 80px;
+	border: 1px solid #999;
+	margin-bottom: 20px;
+}

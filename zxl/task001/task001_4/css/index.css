@@ -1,0 +1,46 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.main-wrap {
+	width: 500px;
+	height: 500px;
+	border: 1px solid #999;
+}
+.block-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.content {
+	position: relative;
+	width: 400px;
+	height: 200px;
+	background-color: #ccc;
+	overflow: hidden;
+	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.content h1 {
+	color: #fff;
+}
+
+
+.circle {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	background-color: #fc0;
+	border-radius: 50%;
+}
+.first {
+	top: -50px;
+	left: -50px;
+}
+.second {
+	bottom: -50px;
+	right: -50px;
+}
