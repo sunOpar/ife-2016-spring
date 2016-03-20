@@ -1,0 +1,20 @@
+.block{
+	/*display: block;*/
+	width: 400px;
+	height: 200px;
+	background-color: #ccc;
+	position: absolute;
+	box-sizing: border-box;
+	padding: 10px;
+	left: 0;right: 0;top: 0;bottom: 0;
+	margin: auto;
+}
+.circle{
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
+	position: absolute;
+	top:20px;
+	left: 20px;
+	background-color: #fc0;
+}
