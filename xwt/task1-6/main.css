@@ -1,0 +1,118 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+.main{
+	width: 960px;
+	height: 1386px;
+}
+.container{
+	width: 892px;
+	margin: 0 auto;
+	position: relative;
+}
+.header{
+	width:110px;
+	height:61px;
+	background: #d45d5c;
+}
+
+.hr{
+	height: 2px;
+	background: #938e8c;
+}
+header p{
+	position: absolute;
+	top: 45px;
+}
+.title{
+	color: #fff;
+	font:12px '黑体';
+	left: 5px;
+}
+.time{
+	right: 5px;
+	color: #d45d5c;
+	font: 12px '黑体';
+}
+.main-view{
+	position: relative;
+	margin-top: 30px;
+}
+.img-container{
+	width: 641px;
+	height: 301px;
+	position: relative;
+}
+.left-green{
+	width: 191px;
+	height: 301px;
+	background: url(img/green-mask.png);
+	position: absolute;
+	top:0;
+}
+.right-red{
+	width: 191px;
+	height: 301px;
+	background: url(img/red-mask.png);
+	position: absolute;
+	top:0;
+	right: 0;
+}
+.main-img{
+	width: 641px;
+	height: 301px;
+	background: url(img/main-img.png);
+}
+.main-view-right{
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 203px;
+	height: 301px;
+	overflow: hidden;
+}
+.main-view-right .red-hr{
+	background: #cc8091;
+}
+.main-view-right  h1{
+	font-size: 24px;
+	text-decoration: underline;
+	font-family: '微软雅黑'; 
+	line-height: 40px;
+	font-variant: small-caps;/*学到的*/
+}
+.main-view-right p.r-content{
+	font-size: 12px;
+	color: #676767;
+	font-family: '楷体';
+	line-height: 10px;
+}
+.right-number{
+	font-size: 116px;
+	color: #75b86b;
+	font-family: '微软雅黑';
+	font-style: italic;
+	margin-left: -20px;
+}
+.r-n{
+	float: left;
+	font-size: 55px;
+	color: #cc8091;
+	font-family: '微软雅黑';
+	margin-top: -10px;
+}
+.s-content-1{
+	font-size: 21px;
+	color: #cc8091;
+	font-family: '微软雅黑';
+	position: relative;
+	top: 14px;
+}
+.s-content-2{
+	font-size: 12px;
+	color: #ccc;
+	font-family: '微软雅黑';
+	position: relative;
+	top: 5px;
+}
