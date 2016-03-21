@@ -41,7 +41,6 @@ A：它是基于最近的设置了position属性（static除外）的祖先元�
 2.否则，包含框就是padding box。
 
 
-
 [w3.org:containing block](https://www.w3.org/TR/CSS2/visudet.html#containing-block-details)
 
 >The position and size of an element's box(es) are sometimes calculated relative to a certain rectangle, called the **containing block** of the element. 
@@ -79,3 +78,25 @@ For absolutely positioned elements, the top, right, bottom, and left properties 
 >The margin of the element is then positioned inside these offsets.
 
 5.因为元素是绝对定位的因此脱离了普通文档流，至此，浏览器会给其`margin-top/bottom`值设置相等来让它居中
+
+[w3.org:Absolutely positioned](https://www.w3.org/TR/CSS2/visudet.html#abs-non-replaced-height)
+
+>If none of the three are 'auto': If both 'margin-top' and 'margin-bottom' are 'auto', solve the equation under the extra constraint that the two margins get equal values. If one of 'margin-top' or 'margin-bottom' is 'auto', solve the equation for that value. If the values are over-constrained, ignore the value for 'bottom' and solve for that value.
+
+## 总结
+
+```
+position: absolute;
+left/right/bottom/top: 0;
+margin: auto;
+```
+
+### 优点：
+
+可以使元素水平垂直居中，即使你调整了该元素的大小甚至padding，又或者你使用百分比数作为大小，它依旧会兢兢业业的居中而不需要多次修改代码，并且兼容ie8+。
+
+### 注意：
+
+1. 必须设置宽高。
+2. 建议设置`overflow: auto`来防止文本溢出。
+3. 不兼容Windows Phone。
