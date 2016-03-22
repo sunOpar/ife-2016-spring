@@ -37,16 +37,15 @@
   
 function getData() {
   var source = document.getElementById('source') ;
-  var data = new Array;
-  for(var i = 0,j = source.childNodes.length; i < j; i++){
-    // 判断是否为元素节点
-    if(source.childNodes[i].nodeType == 1){
+  var sourceLi = document.querySelectorAll('#source li');
+  var data = [];
+  for(var i = 0,j = sourceLi.length; i < j; i++){
       // 获得元素节点的文本
-      var text = source.childNodes[i].textContent;
+      var text = sourceLi[i].textContent;
       // 将字符串分割
-      var targetList = text.split(/[空气质量：]/g);
-      data.push([targetList[0],targetList[5]]);  
-    }
+      var targetList = text.split(/空气质量：/g);
+      data.push([targetList[0], +targetList[1]]);  
+    
   }
   return data;
 }
