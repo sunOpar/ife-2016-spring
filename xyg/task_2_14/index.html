@@ -49,15 +49,19 @@ var aqiData = [
   //遍历list循环添加到页面中
 
   for(var i = 0,j = list.length; i<j; i++ ){
+  	// 不大于十用中文数字排序
   	if(j < 10){
 	  	var fir = document.createElement('li');
 		var las = document.createTextNode('第' + util[i] + '名: ' + list[i][0] + ', ' + list[i][1]);
 		fir.appendChild(las);
 		aqi.appendChild(fir);
 		}
-	
+	// 如果大于十，就用阿拉伯数字排序
 	else {
-		console.log('超过十了，我不行了。。。');
+		var fir = document.createElement('li');
+		var las = document.createTextNode('第' + (i+1) + '名: ' + list[i][0] + ', ' + list[i][1]);
+		fir.appendChild(las);
+		aqi.appendChild(fir);
 	}
   }	
 })();
