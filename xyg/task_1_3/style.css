@@ -10,6 +10,7 @@ body{padding: 0;margin: 0;}
 .wrap{
 	margin: 20px;
 	padding: 20px;
+	min-width: 450px;
 	border: 1px solid #999;
 	background-color: #eee;
 }
