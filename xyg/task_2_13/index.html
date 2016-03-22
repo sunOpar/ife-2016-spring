@@ -34,7 +34,8 @@
     }
     else{
     var show = document.getElementById('aqi-display');
-    show.innerHTML = tq;
+    // 十进制形式输出。
+    show.innerHTML = Number(tq).toString();
     }
   },false);
 })();
