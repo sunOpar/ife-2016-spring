@@ -71,9 +71,9 @@ function sortAqiData(data) {
 function render(data) {
   var resor = document.getElementById('resort');
   var util = ['一','二','三','四','五','六','七','八','九','十'];
-  var fir = document.createElement('li');
   for (var i = 0,j = data.length;i < j; i++) {
-    fir.innerHTML += '第' + util[i] + '名：' + data[i][0] + '空气质量：' + '<b>' + data[i][1]+ '</b>' + '<br>';
+    var fir = document.createElement('li');
+    fir.innerHTML = '第' + util[i] + '名：' + data[i][0] + '空气质量：' + '<b>' + data[i][1]+ '</b>' + '<br>';
     resor.appendChild(fir);
   }
 }
