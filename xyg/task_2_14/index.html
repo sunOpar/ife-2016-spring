@@ -16,12 +16,12 @@
 <script type="text/javascript">
 
 var aqiData = [
-  ["北京", 90],
-  ["上海", 50],
-  ["福州", 10],
-  ["广州", 50],
-  ["成都", 90],
-  ["西安", 100]
+    ["北京", 90],
+    ["上海", 50],
+    ["福州", 10],
+    ["广州", 50],
+    ["成都", 90],
+    ["西安", 100]
 ];
 
 (function () {
@@ -32,38 +32,41 @@ var aqiData = [
   将空气质量指数大于60的城市显示到aqi-list的列表中
   */
 
-  var aqi = document.getElementById('aqi-list');
-  // 遍历数组得到大于60的列表，存放到list中
-  var list = new Array;
-  for (var i = 0,j = aqiData.length; i < j; i++) {
-  	if(aqiData[i][1] > 60){
-  		list.push([aqiData[i][0],aqiData[i][1]]);
-  	}
-  }
-  // 对数组进行排序
-  list.sort(function sortNumber(a,b){
-  	return b[1] - a[1];
-  });
-  // 用作排名，目前只能排十个名额
-  var util = ['一','二','三','四','五','六','七','八','九','十'];
-  //遍历list循环添加到页面中
+    var aqi = document.getElementById('aqi-list');
+    // 遍历数组得到大于60的列表，存放到list中
+    function sortNum(num){
+        if(num[1] > 60){
+          return num;
+        }
+    }
+    var list = aqiData.map(sortNum);
+            
+    // 对数组进行排序
+    list.sort(function (a,b){
+    	  return b[1] - a[1];
+    });
+    // 用作排名，目前只能排十个名额
+    var util = ['一','二','三','四','五','六','七','八','九','十'];
+    //遍历list循环添加到页面中
 
-  for(var i = 0,j = list.length; i<j; i++ ){
-  	// 不大于十用中文数字排序
-  	if(j < 10){
-	  	var fir = document.createElement('li');
-		var las = document.createTextNode('第' + util[i] + '名: ' + list[i][0] + ', ' + list[i][1]);
-		fir.appendChild(las);
-		aqi.appendChild(fir);
-		}
-	// 如果大于十，就用阿拉伯数字排序
-	else {
-		var fir = document.createElement('li');
-		var las = document.createTextNode('第' + (i+1) + '名: ' + list[i][0] + ', ' + list[i][1]);
-		fir.appendChild(las);
-		aqi.appendChild(fir);
-	}
-  }	
+    for(var i = 0,j = list.length; i<j; i++ ){
+    	// 不大于十用中文数字排序
+    	  if(i < 10){
+  	  	var fir = document.createElement('li');
+        if(list[i]){
+      		  var las = document.createTextNode('第' + util[i] + '名: ' + list[i][0] + ', ' + list[i][1]);
+      		  fir.appendChild(las);
+      		  aqi.appendChild(fir);
+        }
+  		}
+  	// 如果大于十，就用阿拉伯数字排序
+  	else {
+    		var fir = document.createElement('li');
+    		var las = document.createTextNode('第' + (i+1) + '名: ' + list[i][0] + ', ' + list[i][1]);
+    		fir.appendChild(las);
+    		aqi.appendChild(fir);
+  	}
+    }	
 })();
 
 </script>
