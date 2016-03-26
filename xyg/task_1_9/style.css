@@ -1,0 +1,279 @@
+body{padding: 0;margin: 0;
+	min-width: 520px;
+}
+a{	
+	text-decoration: none;
+}
+/*总宽1280px;left:260px/20%;*/
+
+
+/*---------header-----------------*/
+.header{
+	height: 58px;
+	width: 100%;
+	background-color: rgb(33,137,191); 
+	position: relative;
+	/*这两个方法改变该元素的baseline,让图片元素居中*/
+	line-height: 58px;
+	font-size: 0;
+}
+.header img:first-child{
+	margin-left: 50px;
+	vertical-align: middle;
+}
+.header .text-wrap{
+	/*整个包围框右浮动，不然包围框会出现在导航栏下部
+	包围框基于父元素右间隔50px，并且包围框高度与父元素相等*/
+	width: 400px;
+	float: right; 
+	margin-right: 50px;
+}
+.header .text-wrap .text{
+	border-radius: 20px;
+	height: 25px;
+	width: 80%;
+	/*放大镜*/
+	text-indent: 30px;
+	background: url(image/fdj.gif) no-repeat 10px 50%;
+	/*如果不设置背景色，背景色会与header一样*/
+	background-color: white;
+	/*默认宽度为2px，看上去太厚*/
+	border-width: 1px;
+	vertical-align: middle;
+}
+.header .login{
+	vertical-align: middle;
+	margin-left: 1%;
+}
+.header a{
+	/*之前为了让元素绝对居中把font-size设置为0，现在把它设置回来*/
+	font-size: 16px;
+	margin-left: 1.5%;
+	vertical-align: middle;	
+	color: white;
+}
+
+
+
+
+/*------------------------左侧边栏--------------*/
+/*--------侧边栏总包裹层------------*/
+.sidebar{
+	position: relative;overflow: auto;float: left;
+	width: 250px;height: 800px;padding: 20px 45px;
+	box-sizing: border-box;
+	background-color: rgb(42,46,61);
+	color:rgb(87,100,117);
+	font-weight: bold;	
+}
+/*-------用户名--------------*/
+.sidebar img:first-child,
+.account-img{
+	opacity: 0.5;
+}
+.account-name{
+	position: relative;
+	top: -20px;
+	left: 15px;
+
+}
+/*---------收藏与粉丝---------*/
+.collect{
+	float: left;
+	position: absolute;
+	top: 90px;
+	left: 55px;
+	width: 70px;
+	border-right: 1px solid rgb(87,100,117);
+}
+.collect p,
+.fans p{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.fans{
+	position: absolute;
+	left:150px;
+	top: 89px;
+}
+/*-------下面文件夹----------*/
+/*让字体变白*/
+.click{
+	color: white;
+}
+/*文件夹布局*/
+.report{
+	margin-top: 80px;
+}
+/*每一个文件夹布局*/
+.line{
+	margin-top: 15px;
+}
+/*让文件夹往上移*/
+.document2{
+	/*margin-left因为有下面的设置，因此无效，
+	为了让路径图标重合选择选择position属性*/
+	margin-top: -14px;
+	position: relative;
+	left: -1px;
+}
+/*连续两个margin-left让文件夹层级位移*/
+.report>div{
+	margin-left: 30px;
+}
+.line>div{
+	margin-left: 30px;
+}
+.line2{
+	margin-top: 30px;
+}
+
+/*----------页面主体内容-----------------------*/
+.main-wrap{
+	height: 760px;
+	/*width: 800px;*/
+	/*border:1px solid red;*/
+	background-color: rgb(237,237,237);
+	/*主体部分由于左侧边栏的浮动会占满全屏，所以*/
+	margin-left: 250px;
+}
+/*---------主体导航------------*/
+.main-nav{
+	margin: 0;
+	padding: 10px 30px;
+	background-color: white;
+	overflow: auto;
+	list-style: none;
+}
+.font{
+	color: rgb(180,180,180);
+}
+.main-nav li{
+	float: left;
+	margin-left: 5px;
+}
+.font-hover,
+.main-nav a:hover{
+	color: rgb(56,139,193);
+}
+/*---------页面主体的主体O(∩_∩)O哈哈~-------------*/
+.main{
+	margin: 10px 50px;
+}
+/*------------第一栏---------------*/
+.main-search{
+	padding: 20px 0;
+	position: relative;
+	background-color: white;
+	border:1px solid rgb(220,220,220);
+}
+.main-search span{
+	margin-left: 50px;
+	font-size: 0.8em;
+}
+.main-search select{
+	padding: 5px 5px;
+	margin-left: 10px;
+}
+.main-search .trader{
+	width: 130px;
+}
+.main-search .date{
+	width: 130px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+.main-search>div{
+	margin-bottom: 10px;
+}
+.main-search .seller{
+	margin-left: 240px;
+}
+.main-search button{
+	padding: 7px 15px;
+	margin-left: 50px;
+	position: relative;top: -20px;
+	border-width:0;border-radius: 3px;
+	background-color: rgb(56,139,193);
+	color: white;
+}
+/*-------------------第二栏-------------*/
+.main-data{
+	margin-top: 10px;
+	overflow: auto;	
+	position: relative;
+}
+.main-data a,
+.main-data div{
+	float: left;
+	margin-right: 7px;
+	background-color: white;
+	height: 75px;
+	box-sizing: border-box;
+	border:1px solid rgb(220,220,220);
+
+}
+.main-data .data-cell:hover{
+	/*图片颜色67 137 201*/
+	background: url(image/blue.png) top repeat-x;
+	background-color: white;
+}
+.main-data a{
+	line-height: 75px;
+	padding: 0 8px;
+	font-size: 25px;
+}
+.main-data .data-cell{
+	padding: 10px 32px;
+}
+.data-cell .rmb-notate{
+	font-weight: bold;
+}
+.data-cell .rmb{
+	color: rgb(235,101,1);
+	font-weight: bold;
+	font-size: 1.5em;
+}
+.rmb-notate,
+.rmb{
+	position: relative;
+	top: 5px;
+}
+.main-data .history-search{
+	padding: 10px 28px;
+	line-height: 53px;
+}
+.main .last-cell{
+	/*取消上面的继承*/
+	margin-right: 0px;
+}
+.history-search img{
+	vertical-align: middle;
+}
+/*----------第三栏---------------*/
+.main-statistics{
+	margin-top: 20px;
+}
+.statistics-cell-wrap{
+	overflow: auto;
+	margin-top: 10px;
+
+}
+.statistics-cell{
+	width: 241px;
+	box-sizing: border-box;
+	height: 85px;
+	padding: 15px 17px 0 ;
+	background: url(image/green.png) repeat-y;
+	background-color: white;
+	position: relative;
+	float: left;
+	margin-right: 35px;
+	border: 1px solid rgb(220,220,220);
+}
+.statistics-cell div{
+	float: right;
+	position: relative;
+	top: -35px;
+}
