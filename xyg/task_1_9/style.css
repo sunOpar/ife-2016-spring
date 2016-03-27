@@ -1,5 +1,5 @@
 body{padding: 0;margin: 0;
-	min-width: 520px;
+	min-width: 550px;
 }
 a{	
 	text-decoration: none;
@@ -43,7 +43,7 @@ a{
 }
 .header .login{
 	vertical-align: middle;
-	margin-left: 1%;
+	margin-left: 4%;
 }
 .header a{
 	/*之前为了让元素绝对居中把font-size设置为0，现在把它设置回来*/
@@ -60,16 +60,15 @@ a{
 /*--------侧边栏总包裹层------------*/
 .sidebar{
 	position: relative;overflow: auto;float: left;
-	width: 250px;height: 800px;padding: 20px 45px;
+	width: 250px;height: 1500px;padding: 20px 0;
 	box-sizing: border-box;
 	background-color: rgb(42,46,61);
 	color:rgb(87,100,117);
 	font-weight: bold;	
 }
 /*-------用户名--------------*/
-.sidebar img:first-child,
 .account-img{
-	opacity: 0.5;
+	margin-left: 45px;
 }
 .account-name{
 	position: relative;
@@ -104,18 +103,15 @@ a{
 /*文件夹布局*/
 .report{
 	margin-top: 80px;
+	padding: 20px 45px;
+}
+.line2:hover,
+.report{
+	background-color: rgb(56,62,78);
 }
 /*每一个文件夹布局*/
 .line{
-	margin-top: 15px;
-}
-/*让文件夹往上移*/
-.document2{
-	/*margin-left因为有下面的设置，因此无效，
-	为了让路径图标重合选择选择position属性*/
-	margin-top: -14px;
-	position: relative;
-	left: -1px;
+	margin-top: 10px;
 }
 /*连续两个margin-left让文件夹层级位移*/
 .report>div{
@@ -125,14 +121,12 @@ a{
 	margin-left: 30px;
 }
 .line2{
-	margin-top: 30px;
+	padding: 15px 45px;
 }
 
 /*----------页面主体内容-----------------------*/
 .main-wrap{
-	height: 760px;
-	/*width: 800px;*/
-	/*border:1px solid red;*/
+	height: 1500px;	width: 1173px;
 	background-color: rgb(237,237,237);
 	/*主体部分由于左侧边栏的浮动会占满全屏，所以*/
 	margin-left: 250px;
@@ -198,7 +192,18 @@ a{
 	background-color: rgb(56,139,193);
 	color: white;
 }
-/*-------------------第二栏-------------*/
+/*卖方买方换*/
+.change{
+	position: relative;
+	top: 30px;
+}
+.changeLetter{
+	position: absolute;
+	color:white;
+	left: 384px;
+	top: 61px;
+}
+/*-------------------第二栏时间钱-------------*/
 .main-data{
 	margin-top: 10px;
 	overflow: auto;	
@@ -214,7 +219,8 @@ a{
 	border:1px solid rgb(220,220,220);
 
 }
-.main-data .data-cell:hover{
+.main-data .data-cell:hover,
+.cell-onhover{
 	/*图片颜色67 137 201*/
 	background: url(image/blue.png) top repeat-x;
 	background-color: white;
@@ -251,7 +257,7 @@ a{
 .history-search img{
 	vertical-align: middle;
 }
-/*----------第三栏---------------*/
+/*----------第三栏统计---------------*/
 .main-statistics{
 	margin-top: 20px;
 }
@@ -265,8 +271,6 @@ a{
 	box-sizing: border-box;
 	height: 85px;
 	padding: 15px 17px 0 ;
-	background: url(image/green.png) repeat-y;
-	background-color: white;
 	position: relative;
 	float: left;
 	margin-right: 35px;
@@ -276,4 +280,235 @@ a{
 	float: right;
 	position: relative;
 	top: -35px;
+}
+.cell-1{
+	background: url(image/num1.png) repeat-y;
+	background-color: white;	
+}
+.cell-2{
+	background: url(image/num2.png) repeat-y;
+	background-color: white;
+}
+.cell-3{
+	background: url(image/num3.png) repeat-y;
+	background-color: white;
+}
+.cell-4{
+	background: url(image/num4.png) repeat-y;
+	background-color: white;
+}
+/*---------------第四栏左侧------------------*/
+.project-wrap{
+    margin-top: 20px;
+    padding-bottom: 25px; 
+    background-color: white;
+    border: 1px solid rgb(220,220,220);
+    border-radius: 10px;
+}
+.project-wrap-1{
+    float: left;
+
+}
+.project-title{
+    padding: 15px 25px;
+    line-height: height;
+    border-bottom:1px solid rgb(220,220,220);
+    border-radius: 10px 10px 0 0;
+    background-color: rgb(244,244,244);
+}
+.project-wrap ul{
+	padding-left: 25px;
+	/*overflow: hidden;*/
+	margin-bottom: 0;
+	position: relative;
+}
+.project-wrap li{
+    display: inline-block;
+    box-sizing: border-box;
+    /*width: 100px;*/
+    list-style: none;
+    padding: 8px 25px;
+    margin-right:-1px;
+    background: rgb(238,237,242);
+    border-radius: 5px 5px 0 0;
+
+      
+}
+.project-wrap li:hover,
+.project-wrap .first-pro{
+	border: 1px solid rgb(220,220,220);
+    border-bottom: none;
+    position: relative;
+    /*通过这个把下面的那条线遮住*/
+    top: 1px;
+    background-color: white;
+}
+.project-table{
+	padding: 55px;
+	margin: 0 25px;
+	text-align: center;
+	border:1px solid rgb(220,220,220);
+}
+.project-table td{
+	border-left: 1px solid rgb(220,220,220);
+	border-top: 1px solid rgb(220,220,220);
+	padding: 11px;
+}
+.last-row td{
+	border-bottom: 1px solid rgb(220,220,220);
+}
+.last-col{
+	border-right: 1px solid rgb(220,220,220);
+}
+/*------------第四列右侧-------------------*/
+.project-wrap-2{
+	margin-left: 648px;
+}
+.project-body{
+	padding: 20px 40px;
+	line-height: 1.5em;
+}
+.project-wrap .project-name{
+	padding-left: 20px;
+}
+.project-wrap .price{
+	float: left;
+	border: 1px solid rgb(220,220,220);
+	border-left: none; 
+	padding: 2px 60px 5px 20px;
+}
+.project-wrap .director{
+	border-top: 1px solid rgb(220,220,220);
+	border-bottom: 1px solid rgb(220,220,220);
+	padding: 2px 60px 5px 140px;
+
+}
+.project-body textarea{
+	width: 100%;
+	height: 197px;
+	border:none;
+	resize: none;
+	border-bottom: 1px solid rgb(220,220,220);
+	margin-bottom: 10px;
+}
+.project-body .project-search{
+	padding: 7px 15px; float: right;
+	border-width:0;border-radius: 3px;
+	background-color: rgb(56,139,193);
+	color: white;
+}
+/*----------最后一列左侧（终于要结束了）--------*/
+.calendar{
+	float: left;
+}
+/*月份*/
+.calendar .month{
+	padding: 2px 25px;
+}
+/*返回今天*/
+.data-return{
+	background-color: white;
+	border-width: 1px;
+}
+.calendar select,
+.calendar button{
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+/*--------日历主体-----*/
+.calendar-date{
+	margin-top: 15px;
+	text-align: center;
+	line-height: 1.2em;
+
+}
+.calendar-date .week th{
+	border-top: 1px solid rgb(56,139,193);
+	border-bottom: 1px solid rgb(220,220,220);
+}
+.calendar-tate tr{
+}
+.calendar-date td,
+.calendar-date th{
+	padding: 5px;
+	border:1px solid white;
+}
+.calendar-date span{
+	color: rgb(202,21,30);
+}
+.calendar-date td:hover,
+.calendar-date .onhover{
+	border: 1px solid rgb(248,212,100);
+}
+/*----------最后一列右侧------------------*/
+.carRent{
+	margin-left: 430px;
+}.carRent a{
+}
+.carRent .rent-date{
+	border:none;
+	padding: 20px 40px;
+	margin: 0;
+}
+.carRent td{
+	padding: 5px;
+}
+.carRent th{
+	border: 1px solid rgb(220,220,220);
+	border-bottom: none;
+	padding: 5px 30px;
+}
+.carRent a{
+	padding: 5px 30px;
+	color: black;
+}
+.carRent tr:hover{
+	background-color: rgb(244,244,244);
+}
+.rent-date .rentBar{
+	display: inline-block;
+	width: 220px;
+	height: 5px;
+	margin-left: 10px;
+	vertical-align: middle;
+	background-color: rgb(220,220,220);
+}
+.rent-1,.rent-2,.rent-3,.rent-4,.rent-5,.rent-6,.rent-7,
+.rent-8,.rent-9,.rent-10{
+	height: 5px;
+	float: left;
+	background-color: rgb(127,202,241);
+}
+.rent-1{
+	width: 80%;
+	background-color: rgb(238,110,81);
+}
+.rent-2{
+	width: 75%;
+	background-color: rgb(239,129,80);
+}
+.rent-3{
+	width: 65%;
+	background-color: rgb(241,158,78);
+}
+.rent-4{
+	width: 63%;
+}
+.rent-5{
+	width: 50%;
+}
+.rent-6{
+	width: 47%;
+}
+.rent-7{
+	width: 44%;
+}
+.rent-8{
+	width: 40%;
+}
+.rent-9{
+	width: 38%;
+}
+.rent-10{
+	width: 35%;
 }
