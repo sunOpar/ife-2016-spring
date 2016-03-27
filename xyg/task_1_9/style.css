@@ -334,6 +334,10 @@ a{
 
       
 }
+.project-wrap-1 td:hover,
+.project-wrap-1 .table-hover{
+	background-color: rgb(244,245,247);
+}
 .project-wrap li:hover,
 .project-wrap .first-pro{
 	border: 1px solid rgb(220,220,220);
