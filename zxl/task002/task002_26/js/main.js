@@ -204,7 +204,7 @@ function Airship(createCommand) {
         },
         //自爆
         this.boom = function() {
-            airshipArr.splice(this.orbit, 1);
+            airshipArr.splice(this.orbit, 1, 0);
         },
 
         this.restore = function() {

@@ -9,12 +9,7 @@
  *   }
  ****************************************************************/
 
-/**
- * 3.26更新
- * 	1.修复一个BUG BUG详情见源码js/control.js 49行
- * 	2.修改一个逻辑问题 创建飞船应该由行星执行 且必定会创建成功
- * 	3.代码优化
- */
+
 
 //获取各种功能button
 var orbitArr = [$('.orbit0 input'), $('.orbit1 input'), $('.orbit2 input'), $('.orbit3 input')];
@@ -48,19 +43,18 @@ function sendFn(orbit, command) {
         cmdAirshipArr[orbit].command = 'create';
         $('.create-wrap').show();
 
+
         /**
          * 解决第几次点击就会执行多少次的问题
          * 问题原因：jQuery的事件绑定机制里用数组来保存事件，如果对同一元素进行重复绑定，不会覆盖之前已经绑定的事件，只是把新的绑定事件再push到保存事件的数组中，当事件触发时就会循环执行数组中的事件。
-         * 解决方案1：绑定前使用off()方法一次性解除所有的绑定
-         * 解决方案2：使用one()绑定 见2_27源码
+         * 解决方案1：绑定前使用off()方法一次性解除所有的绑定 见2_26源码
+         * 解决方案2：使用one()绑定
          */
-        $('input[name=create-airship]').off();
-        $('input[name=create-airship]').on('click', function () {
+        $('input[name=create-airship]').one('click', function () {
 
             var powers = $('.power input');
             var energys = $('.energy input');
             //默认配置
-            //3.27更新 一个小小的逻辑问题 导致第二个动力和能源系统无法正常选择
             cmdAirshipArr[orbit].dynamical = powerArr[0][0];
             cmdAirshipArr[orbit].useEnergy = powerArr[0][1];
             cmdAirshipArr[orbit].energy = energyArr[0];
@@ -75,9 +69,8 @@ function sendFn(orbit, command) {
                     cmdAirshipArr[orbit].energy = energyArr[i];
                 }
             }
-
             commander.send(cmdAirshipArr[orbit]);
-            updateCmdWrap();
+
             $('.create-wrap').hide();
         });
     } else {
@@ -89,28 +82,11 @@ function sendFn(orbit, command) {
             cmdAirshipArr[orbit].command = 'boom';
         }
         commander.send(cmdAirshipArr[orbit]);
-        updateCmdWrap();
     }
 
 
 }
-//更新指挥官视图
-function updateCmdWrap() {
-    var msgArr = commander.message;
-    var flyArr = commander.isFlightArr;
 
-
-    for (i = 0; i < 4; i ++) {
-        $('.command-message div').eq(i).find('span').eq(1).html('未创建');
-        $('.command-message div').eq(i).find('span').eq(2).html('未飞行');
-        if (msgArr[i]) {
-            $('.command-message div').eq(i).find('span').eq(1).html('已创建');
-        }
-        if (flyArr[i]) {
-            $('.command-message div').eq(i).find('span').eq(2).html('飞行中');
-        }
-    }
-}
 
 $('input[name=cancel]').on('click', function () {
     $('.create-wrap').hide();

@@ -54,22 +54,20 @@ function sendFn(orbit, command) {
 
             var powers = $('.power input');
             var energys = $('.energy input');
+            //默认配置
+            //3.27更新 一个小小的逻辑问题 导致第二个动力和能源系统无法正常选择
+            cmdAirshipArr[orbit].dynamical = powerArr[0][0];
+            cmdAirshipArr[orbit].useEnergy = powerArr[0][1];
+            cmdAirshipArr[orbit].energy = energyArr[0];
             for (var i = 0; i < 3; i ++) {
                 if (powers.eq(i)[0].checked) {
                     //设置为选中的动力配置
                     cmdAirshipArr[orbit].dynamical = powerArr[i][0];
                     cmdAirshipArr[orbit].useEnergy = powerArr[i][1];
-                } else {
-                    //设置默认动力配置
-                    cmdAirshipArr[orbit].dynamical = powerArr[0][0];
-                    cmdAirshipArr[orbit].useEnergy = powerArr[0][1];
                 }
                 if (energys.eq(i)[0].checked) {
                     //设置为选中的能源配置
                     cmdAirshipArr[orbit].energy = energyArr[i];
-                } else {
-                    //设置为默认的能源配置
-                    cmdAirshipArr[orbit].energy = energyArr[0];
                 }
             }
             commander.send(cmdAirshipArr[orbit]);
