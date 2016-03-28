@@ -32,7 +32,7 @@ function addAqiData() {
 		city.value = '';
 		return false;
 	}
-	else if(!parseInt(weatherV)){
+	else if(weatherV.search(/^[0-9]$/)){
 		alert('请输入空气质量的值为整数');
 		weather.value = '';
 		return false;
@@ -49,7 +49,7 @@ function addAqiData() {
 function renderAqiList() {
 	table.innerHTML = '<tr><td>城市</td><td>空气质量</td><td>操作</td></tr>';
 	for(var i in aqiData){
-		table.innerHTML += '<tr><td>' + i + '</td><td>' + aqiData[i] + "</td><td><button onclick = 'delBtnHandle(\""+i+"\")'>删除</button></td>";
+		table.innerHTML += '<tr><td>' + i + '</td><td>' + aqiData[i] + "</td><td><button onclick = 'delBtnHandle(\"" + i + "\")'>删除</button></td>";
 	}
 }
 
