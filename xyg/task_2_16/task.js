@@ -32,7 +32,7 @@ function addAqiData() {
 		city.value = '';
 		return false;
 	}
-	else if(weatherV.search(/^[0-9]$/)){
+	else if(isNaN(weatherV)){
 		alert('请输入空气质量的值为整数');
 		weather.value = '';
 		return false;
@@ -49,7 +49,7 @@ function addAqiData() {
 function renderAqiList() {
 	table.innerHTML = '<tr><td>城市</td><td>空气质量</td><td>操作</td></tr>';
 	for(var i in aqiData){
-		table.innerHTML += '<tr><td>' + i + '</td><td>' + aqiData[i] + "</td><td><button onclick = 'delBtnHandle(\"" + i + "\")'>删除</button></td>";
+		table.innerHTML += '<tr><td>' + i + '</td><td>' + aqiData[i] + "</td><td><button>删除</button></td>";
 	}
 }
 
@@ -67,13 +67,29 @@ function addBtnHandle() {
 * 获取哪个城市数据被删，删除数据，更新表格显示
 */
 function delBtnHandle(arg) {
-	delete aqiData[arg];
-	renderAqiList();
+	if(arguments.length === 1){
+		var tr = arg.parentNode.parentNode;
+		var td = tr.getElementsByTagName('td')[0].firstChild.nodeValue;
+		delete aqiData[td];
+		renderAqiList();
+		addDel();
+	}
+	else{
+		addDel();
+	}
 }	
-
+function addDel(){
+	var del = table.getElementsByTagName('button');
+	for (var i = 0; i < del.length; i++) {
+		del[i].onclick = function(){
+			delBtnHandle(this);
+		}
+	}
+}
 function init() {
 	btn.onclick = function(){
 		addBtnHandle();
+		delBtnHandle();
 	}
 };
 // 在这下面给add-btn绑定一个点击事件，点击时触发addBtnHandle函数
