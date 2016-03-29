@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task2_21</title>
+	<style type="text/css">
+	#container div{
+		width:50px;
+		height:50px;
+		background: red;
+		color: white;
+		float: left;
+		text-align: center;
+		line-height: 50px;
+		margin-left: 10px; 
+	}
+	#container{
+		overflow: hidden;
+		margin-bottom: 20px;
+	}
+	
+	#container2{
+		overflow: hidden;
+		margin-top: 20px;
+	}
+	#container2 div{
+		font-size:20px;
+		
+		height:50px;
+		background: #88ccff;
+		color: white;
+		float: left;
+		text-align: center;
+		line-height: 50px;
+		margin-left: 10px; 
+		transition: all 0.1s;
+	}
+	#container2 div:hover{
+		
+		background: red;
+		color: white;
+		cursor: pointer;
+	}
+	</style>
+</head>
+<body>
+<textarea id="input-text"></textarea>
+<input id="push-in" type="button" value="确认你的兴趣爱好"/>
+<div id="container">
+
+</div>
+<input id="tag" type="text" placeholder="输入tag标签" />
+
+
+<div id="container2">
+
+</div>	
+</body>
+<script type="text/javascript" src='task.js'></script>
+</html>
