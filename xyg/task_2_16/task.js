@@ -23,23 +23,28 @@ var aqiData = {};
 function addAqiData() {
 	var cityV = city.value.trim();
 	var weatherV = weather.value.trim();
+	var flag = true;
 	if (!cityV) {
 		alert('请输入城市名称');
-		return false;
+		flag = false;
 	}
 	else if(cityV.search(/^[\u4e00-\u9fa5a-zA-Z]+$/) == -1){
 		alert('请输入正确的城市名');
 		city.value = '';
-		return false;
+		flag = false;
 	}
 	else if(isNaN(weatherV)){
 		alert('请输入空气质量的值为整数');
 		weather.value = '';
-		return false;
+		flag = false;
+	}
+	if(!flag){
+		return;
 	}
 	else{
 		aqiData[cityV] = parseInt(weatherV);
 		console.log(aqiData);
+
 	}
 }
 
@@ -83,15 +88,15 @@ function addDel(){
 	for (var i = 0; i < del.length; i++) {
 		del[i].onclick = function(){
 			delBtnHandle(this);
-		}
+		};
 	}
 }
 function init() {
 	btn.onclick = function(){
 		addBtnHandle();
 		delBtnHandle();
-	}
-};
+	};
+}
 // 在这下面给add-btn绑定一个点击事件，点击时触发addBtnHandle函数
 
 // 想办法给aqi-table中的所有删除按钮绑定事件，触发delBtnHandle函数
@@ -106,7 +111,7 @@ function addLoadEvent(func) {
 		window.onload = function(){
 			oldonload();
 			func();
-		}
+		};
 	}
 }
 addLoadEvent(init);
