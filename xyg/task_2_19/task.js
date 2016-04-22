@@ -178,8 +178,7 @@ function sortNumber(arr, element) {
 					temp = arr[j];
 					arr[j] = arr[j + 1];
 					arr[j + 1] = temp;
-					element[j].style.backgroundColor = 'green';
-					element[j+1].style.backgroundColor = 'green';
+
 					element[j].style.height = arr[j] + 'px';
 					element[j + 1].style.height = arr[j + 1] + 'px';
 					j++;
