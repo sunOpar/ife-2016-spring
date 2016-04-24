@@ -3,7 +3,6 @@
  * @return {Array} img的html格式 “<img src="img/1.jpg">”
  */
 function getPhoto() {
-	alert('1');
 	var html = [];
 	for (var i = 1; i < 8; i++) {
 		html[i - 1] = "<img src = \'img/" + i + ".jpg\'>";
