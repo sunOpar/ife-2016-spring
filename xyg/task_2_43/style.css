@@ -1,0 +1,97 @@
+body{
+	background-color: grey;
+}
+h1{
+	position: relative;
+	text-align: center;
+	top: 80px;
+	font-family: "Times New Roman", Georgia, Serif;
+}
+.gallery-wrap{
+	border: 5px solid white;
+	border-radius: 10px;
+	width: 700px;height: 500px;
+	margin: auto;
+	margin-top: 120px;
+	position: relative;
+	line-height: 0;
+	vertical-align: text-top;
+}
+select{
+	position: relative;
+	left: 1100px;
+	top: 100px;
+	padding: 10px;
+	background-color: rgba(153,217,234,0.5);
+	color:white;
+}
+
+.one{
+	width: 700px;
+	height: 500px;
+}
+
+.two-left{
+	-webkit-clip-path: polygon(0 0, 64% 0, 33% 100%, 0 100%);
+	        clip-path: polygon(0 0, 64% 0, 33% 100%, 0 100%);
+	width: 700px;
+	height: 500px;
+		/*position: absolute;*/
+
+}
+.two-right{
+	-webkit-clip-path: polygon(64% 0, 100% 0, 100% 100%, 33% 100%);
+            clip-path: polygon(64% 0, 100% 0, 100% 100%, 33% 100%);
+	width: 700px;
+	height: 500px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.three-main{
+	width: 450px;
+	height: 500px;	
+}
+.three-bottom{
+	width: 250px;
+	height: 250px;
+}
+.three-top{
+	width: 250px;
+	height: 250px;
+	position: absolute;
+	right:  0px;
+
+}
+.four{
+	height: 250px;width: 350px;
+}
+.five-main{
+	height: 66.7%;width: 66.7%;
+}
+.five-square{
+	height: 231px;width: 33.3%;
+	vertical-align:top;
+}
+.five-small{
+	height: 33.3%;width: 33.3%;	
+}
+.five-rectangle{
+	width: 33.3%;
+	height: 269px;
+	vertical-align: baseline;
+	margin-top: -102.5px;
+}
+.six-main{
+	height: 66.7%;width: 66.7%;
+}
+.six-small{
+	height: 33.3%;width: 33.3%;
+	/*vertical-align: top;*/
+	/*float: right;*/
+}
+.six-last{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
