@@ -1,10 +1,11 @@
 /**
  * 创建图片库的html格式，并保存在数组中
+ * num为图片数量
  * @return {Array} img的html格式 “<img src="img/1.jpg">”
  */
-function getPhoto() {
+function getPhoto(num) {
 	var html = [];
-	for (var i = 1; i < 10; i++) {
+	for (var i = 1; i < num; i++) {
 		html[i - 1] = "<img src = \'img/" + i + ".jpg\'>";
 	}
 	return html;
@@ -13,7 +14,7 @@ function getPhoto() {
 function init() {
 	var div = document.querySelector('div');
 	var select = document.querySelector('select');
-	var imgHtml = getPhoto();
+	var imgHtml = getPhoto(9);
 	var button = document.querySelectorAll('button');
 	var gallery = new Gallery(select, div, imgHtml);
 	EventUtil.addHandler(select, 'change', selectChange);
