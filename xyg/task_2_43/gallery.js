@@ -57,26 +57,26 @@ Gallery.prototype.render = function(currentSelect) {
 			img[3].style.cssText = "width:" + this.width * 0.333 + "px;height:" + this.height * 0.333 + "px;";
 			img[4].setAttribute('class', 'five-rectangle');
 			oldStyle = img[4].style;
-			img[4].style.cssText = "width:" + this.width * 0.333 + "px;height:" + (this.height - this.width * 0.33) + "px;";
+			img[4].style.cssText = "width:" + this.width * 0.333 + "px;height:" + (this.height - this.width * 0.33) + "px;margin-top:" + -(this.height * 0.667 - this.width * 0.33) + "px;";
 
-			// img[1].setAttribute('class', 'five-square');
-			// img[2].setAttribute('class', 'five-small');
-			// img[3].setAttribute('class', 'five-small');
-			break;
-		case 'six pictures':
-			this.addPicture(6);
-			img = document.querySelectorAll('img');
-			img[0].style.cssText = "width:" + this.width * 0.667 + "px;height:" + this.height * 0.667 + "px;";
-			img[1].style.cssText = "width:" + this.width * 0.333 + "px;height:" + this.height * 0.333 + "px;";
-			img[2].style.cssText = "width:" + this.width * 0.333 + "px;height:" + this.height * 0.333 + "px;";
-			img[3].style.cssText = "width:" + this.width * 0.333 + "px;height:" + this.height * 0.333 + "px;";
-			img[4].style.cssText = "width:" + this.width * 0.333 + "px;height:" + this.height * 0.333 + "px;";
-			img[5].setAttribute('class', 'six-last');
-			oldStyle = img[5].style;
-			img[5].style.cssText = "width:" + this.width * 0.333 + "px;height:" + this.height * 0.333 + "px;" +
-				oldStyle;
-			break;
-	}
+	// img[1].setAttribute('class', 'five-square');
+	// img[2].setAttribute('class', 'five-small');
+	// img[3].setAttribute('class', 'five-small');
+	break;
+	case 'six pictures':
+		this.addPicture(6);
+		img = document.querySelectorAll('img');
+		img[0].style.cssText = "width:" + this.width * 0.667 + "px;height:" + this.height * 0.667 + "px;";
+		img[1].style.cssText = "width:" + this.width * 0.333 + "px;height:" + this.height * 0.333 + "px;";
+		img[2].style.cssText = "width:" + this.width * 0.333 + "px;height:" + this.height * 0.333 + "px;";
+		img[3].style.cssText = "width:" + this.width * 0.333 + "px;height:" + this.height * 0.333 + "px;";
+		img[4].style.cssText = "width:" + this.width * 0.333 + "px;height:" + this.height * 0.333 + "px;";
+		img[5].setAttribute('class', 'six-last');
+		oldStyle = img[5].style;
+		img[5].style.cssText = "width:" + this.width * 0.333 + "px;height:" + this.height * 0.333 + "px;" +
+			oldStyle;
+		break;
+}
 };
 
 /**
