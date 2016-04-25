@@ -2,10 +2,12 @@
  * 图片库
  * @type {Object}
  */
-function Gallery(select, wrap,imgHtml) {
+function Gallery(select, wrap, imgHtml) {
 	this.select = select;
 	this.wrap = wrap;
 	this.imgHtml = imgHtml;
+	this.height = this.wrap.clientHeight;
+	this.width = this.wrap.clientWidth;
 }
 /**
  * 渲染网页
@@ -14,50 +16,65 @@ function Gallery(select, wrap,imgHtml) {
 Gallery.prototype.render = function(currentSelect) {
 	// var currentSelect = getCurrentSelect(select);
 	var img = null;
+	var oldStyle = "";
 	switch (currentSelect) {
 		case 'one picture':
 			this.addPicture(1);
 			img = document.querySelector('img');
-			img.setAttribute('class', 'one');
+			img.setAttribute('width', this.width);
+			img.setAttribute('height', this.height);
 			break;
 		case 'two pictures':
 			this.addPicture(2);
 			img = document.querySelectorAll('img');
-			img[0].setAttribute('class', 'two-left');
+			img[0].style.cssText = "width:" + this.width + "px;height:" + this.height + "px;";
 			img[1].setAttribute('class', 'two-right');
+			oldStyle = img[1].style;
+			img[1].style.cssText = "width:" + this.width + "px;height:" + this.height + "px;" + oldStyle;
 			break;
 		case 'three pictures':
 			this.addPicture(3);
 			img = document.querySelectorAll('img');
-			img[0].setAttribute('class', 'three-main');
-			img[1].setAttribute('class', 'three-bottom');
+			img[0].style.cssText = "width:" + this.width * 0.63 + "px;height:" + this.height + "px;";
+			img[1].style.cssText = "width:" + this.width * 0.37 + "px;height:" + this.height * 0.5 + "px;";
 			img[2].setAttribute('class', 'three-top');
+			oldStyle = img[2].style;
+			img[2].style.cssText = "width:" + this.width * 0.37 + "px;height:" + this.height * 0.5 + "px;" + oldStyle;
 			break;
 		case 'four pictures':
 			this.addPicture(4);
 			img = document.querySelectorAll('img');
 			for (i = 0; i < 4; i++) {
-				img[i].setAttribute('class', 'four');
+				img[i].style.cssText = "width:" + this.width * 0.5 + "px;height:" + this.height * 0.5 + "px;";
 			}
 			break;
 		case 'five pictures':
 			this.addPicture(5);
 			img = document.querySelectorAll('img');
-			img[0].setAttribute('class', 'five-main');
-			img[1].setAttribute('class', 'five-square');
-			img[2].setAttribute('class', 'five-small');
-			img[3].setAttribute('class', 'five-small');
+			img[0].style.cssText = "width:" + this.width * 0.667 + "px;height:" + this.height * 0.667 + "px;";
+			img[1].style.cssText = "width:" + this.width * 0.333 + "px;height:" + this.width * 0.333 + "px;vertical-align:top;";
+			img[2].style.cssText = "width:" + this.width * 0.333 + "px;height:" + this.height * 0.333 + "px;";
+			img[3].style.cssText = "width:" + this.width * 0.333 + "px;height:" + this.height * 0.333 + "px;";
 			img[4].setAttribute('class', 'five-rectangle');
+			oldStyle = img[4].style;
+			img[4].style.cssText = "width:" + this.width * 0.333 + "px;height:" + (this.height - this.width * 0.33) + "px;";
+
+			// img[1].setAttribute('class', 'five-square');
+			// img[2].setAttribute('class', 'five-small');
+			// img[3].setAttribute('class', 'five-small');
 			break;
 		case 'six pictures':
 			this.addPicture(6);
 			img = document.querySelectorAll('img');
-			img[0].setAttribute('class', 'six-main');
-			img[1].setAttribute('class', 'six-small');
-			img[2].setAttribute('class', 'six-small');
-			img[3].setAttribute('class', 'six-small');
-			img[4].setAttribute('class', 'six-small');
-			img[5].setAttribute('class', 'six-small six-last');
+			img[0].style.cssText = "width:" + this.width * 0.667 + "px;height:" + this.height * 0.667 + "px;";
+			img[1].style.cssText = "width:" + this.width * 0.333 + "px;height:" + this.height * 0.333 + "px;";
+			img[2].style.cssText = "width:" + this.width * 0.333 + "px;height:" + this.height * 0.333 + "px;";
+			img[3].style.cssText = "width:" + this.width * 0.333 + "px;height:" + this.height * 0.333 + "px;";
+			img[4].style.cssText = "width:" + this.width * 0.333 + "px;height:" + this.height * 0.333 + "px;";
+			img[5].setAttribute('class', 'six-last');
+			oldStyle = img[5].style;
+			img[5].style.cssText = "width:" + this.width * 0.333 + "px;height:" + this.height * 0.333 + "px;" +
+				oldStyle;
 			break;
 	}
 };

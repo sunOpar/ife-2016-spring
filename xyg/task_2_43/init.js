@@ -14,12 +14,23 @@ function init() {
 	var div = document.querySelector('div');
 	var select = document.querySelector('select');
 	var imgHtml = getPhoto();
-	var gallery = new Gallery(select, div,imgHtml);
+	var button = document.querySelectorAll('button');
+	var gallery = new Gallery(select, div, imgHtml);
 	EventUtil.addHandler(select, 'change', selectChange);
+	EventUtil.addHandler(button[0], 'click', buttonClick);
+	EventUtil.addHandler(button[1], 'click', buttonClick);
+	EventUtil.addHandler(button[2], 'click', buttonClick);
 
 	function selectChange() {
-		console.log(this);
-		gallery.render(this.value);
+		gallery.render(select.value);
+	}
+
+	function buttonClick() {
+		var dimension = this.value.split('*');
+		div.style.height = dimension[0] + 'px';
+		div.style.width = dimension[1] + 'px';
+		gallery = new Gallery(select, div, imgHtml);
+		selectChange();
 	}
 }
 init();

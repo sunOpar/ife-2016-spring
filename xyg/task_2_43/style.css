@@ -25,20 +25,50 @@ select{
 	background-color: rgba(153,217,234,0.5);
 	color:white;
 }
+button{
+	display:inline-block;
+	-webkit-box-sizing:content-box;
+	-moz-box-sizing:content-box;
+	box-sizing:content-box;
+	padding:0 12px;
+	height:28px;
+	line-height:28px;
+	border:1px solid #2d88bf;
+	border-radius:5px;
+	font-size:12px;
+	letter-spacing:1px;
+	text-align:center;
+	vertical-align:middle;
+	cursor:pointer;
+	word-wrap:normal;
+	white-space:nowrap;
+	box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
+	text-shadow:0 -1px rgba(0,0,0,0.2);
+	background:-webkit-gradient(linear,0% 0%,0% 100%,from(#6dbde4),to(#399dd8));
+	background:-webkit-linear-gradient(#6dbde4,#399dd8);
+	background:-moz-linear-gradient(#6dbde4,#399dd8);
+	background:-ms-linear-gradient(#6dbde4,#399dd8);
+		background:linear-gradient(#6dbde4,#399dd8);
+		/*margin-top: 50px;*/
+		position: relative;
+		top:80px;left: 150px;
+}
+button,button:hover{color:#fff;text-decoration:none;}
+button:hover,button:focus{background:#399dd8;}
 
-.one{
+/*.one{
 	width: 700px;
 	height: 500px;
-}
+}*/
 
-.two-left{
+/*.two-left{
 	-webkit-clip-path: polygon(0 0, 64% 0, 33% 100%, 0 100%);
 	        clip-path: polygon(0 0, 64% 0, 33% 100%, 0 100%);
 	width: 700px;
 	height: 500px;
 		/*position: absolute;*/
 
-}
+/*}*/
 .two-right{
 	-webkit-clip-path: polygon(64% 0, 100% 0, 100% 100%, 33% 100%);
             clip-path: polygon(64% 0, 100% 0, 100% 100%, 33% 100%);
@@ -48,14 +78,14 @@ select{
 	top: 0;
 	left: 0;
 }
-.three-main{
+/*.three-main{
 	width: 450px;
 	height: 500px;	
 }
 .three-bottom{
 	width: 250px;
 	height: 250px;
-}
+}*/
 .three-top{
 	width: 250px;
 	height: 250px;
@@ -63,10 +93,10 @@ select{
 	right:  0px;
 
 }
-.four{
+/*.four{
 	height: 250px;width: 350px;
-}
-.five-main{
+}*/
+/*.five-main{
 	height: 66.7%;width: 66.7%;
 }
 .five-square{
@@ -75,21 +105,23 @@ select{
 }
 .five-small{
 	height: 33.3%;width: 33.3%;	
-}
+}*/
 .five-rectangle{
-	width: 33.3%;
-	height: 269px;
+/*	width: 33.3%;
+	height: 269px;*/
 	vertical-align: baseline;
 	margin-top: -102.5px;
 }
-.six-main{
+
+/*.six-main{
 	height: 66.7%;width: 66.7%;
 }
 .six-small{
 	height: 33.3%;width: 33.3%;
 	/*vertical-align: top;*/
 	/*float: right;*/
-}
+/*}*/
+
 .six-last{
 	position: absolute;
 	top: 0;
