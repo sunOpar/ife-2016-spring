@@ -14,7 +14,7 @@ function getPhoto(num) {
 function init() {
 	var div = document.querySelector('div');
 	var select = document.querySelector('select');
-	var imgHtml = getPhoto(9);
+	var imgHtml = getPhoto(8);
 	var button = document.querySelectorAll('button');
 	var gallery = new Gallery(select, div, imgHtml);
 	EventUtil.addHandler(select, 'change', selectChange);
