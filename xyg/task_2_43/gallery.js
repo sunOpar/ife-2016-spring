@@ -87,7 +87,7 @@ Gallery.prototype.addPicture = function(num) {
 	var numbers = [];
 	var html = '';
 	for (i = 0; i < num; i++) {
-		numbers[i] = Math.floor(Math.random() * 9);
+		numbers[i] = Math.floor(Math.random() * 7);
 		html += this.imgHtml[numbers[i]];
 	}
 	/**

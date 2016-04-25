@@ -23,6 +23,7 @@ function init() {
 	EventUtil.addHandler(button[2], 'click', buttonClick);
 
 	function selectChange() {
+
 		gallery.render(select.value);
 	}
 
