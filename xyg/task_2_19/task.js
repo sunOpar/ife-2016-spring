@@ -107,62 +107,7 @@ function rightOut() {
 	alert($('show').lastElementChild.textContent);
 	$('show').removeChild($('show').lastElementChild);
 }
-/**
- * 执行动画
- * @param  {html元素} ele   要动画的html元素
- * @param  {字符串} util  要改变的元素属性
- * @param  {[type]} start 起始值
- * @param  {[type]} to    结束值
- * @return {[type]}       [description]
- */
-// function animate1(ele, start, to) {
-// 	var len = parseInt(ele.style.height);
-// 	if (len === to) {
-// 		// element[j].style.backgroundColor = 'red';
-// 		// element[j + 1].style.backgroundColor = 'red';
-// 		return;
-// 	} else if (start < to) {
-// 		ele.style.height = ++len + 'px';
-// 	} else {
-// 		ele.style.height = --len + 'px';
-// 	}
-// }
 
-// function animate2(ele, start, to) {
-// 	var len = parseInt(ele.style.height);
-// 	if (len === to) {
-// 		// element[j].style.backgroundColor = 'red';
-// 		// element[j + 1].style.backgroundColor = 'red';
-// 		cleanInterval(animation);
-// 	} else if (start < to) {
-// 		ele.style.height = ++len + 'px';
-// 	} else {
-// 		ele.style.height = --len + 'px';
-// 	}
-// }
-
-// function handlerAnimate(ele1, ele2, start, end) {
-// 	(function() {
-// 		var animation = setInterval(function() {
-// 			animate1(ele1, start, end);
-// 			animate2(ele2, end, start);
-// 		}, 10);
-// 	})();
-// }
-
-// for (var i = 1; i < len; i++) {
-// 	for (var j = 0; j < len - i; j++) {
-// 		if (arr[j] > arr[j + 1]) {
-// 			temp = arr[j];
-// 			arr[j] = arr[j + 1];
-// 			arr[j + 1] = temp;
-// 			element[j].style.height = arr[j] + 'px';
-// 			element[j + 1].style.height = arr[j + 1] + 'px';
-// 		} else {
-
-// 		}
-// 	}
-// }
 function sortNumber(arr, element) {
 	var len = arr.length,
 		temp = -Infinity,

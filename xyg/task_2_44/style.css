@@ -1,0 +1,9 @@
+.gallery-wrap{
+	width: 900px;
+	margin: auto;
+	border:1px solid red;
+}
+img{
+	vertical-align: top;
+	margin:16px;
+}
