@@ -7,3 +7,8 @@ img{
 	vertical-align: top;
 	margin:16px;
 }
+.col{
+	border: 1px solid black;
+	display: inline-block;
+	height: 100px;
+}
