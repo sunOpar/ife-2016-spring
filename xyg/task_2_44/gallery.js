@@ -13,11 +13,12 @@ function Gallery(domImgs, wrap, gap, columnNumber) {
 	this.columnNumber= columnNumber;
 	this.wrapWidth = this.wrap.clientWidth;	
 	this.childColumnsLength = [];
-
+	this.isInitChildColumns = false;
 }
 /**
- * 负责渲染图片的css样式
- * @param  {[type]} imgWidth [description]
+ * 负责渲染图片的css样式，并且将图片循环渲染到页面
+ * @param {Number}   imgWidth       要设置的图片宽度
+ * @param {Dom}      childColumns    被添加图片的包裹层，子列 
  * @return {[type]}          [description]
  */
 Gallery.prototype.renderStyle = function(imgWidth, childColumns) {
@@ -66,6 +67,13 @@ Gallery.prototype.addChild = function(ancestor, columWidth) {
 Gallery.prototype.addImage= function(image,childColumns) {
 	var smalleast = this.getSmalleast();
 	childColumns[smalleast].appendChild(image);
+	// console.log(childColumns[smalleast].style.height);
+	console.log(childColumns[smalleast].clientHeight);
+	// console.log(childColumns[smalleast].offsetHeight);
+	// 延迟50ms获取图片高度
+	// var height = childColumns[smalleast].clientHeight;
+	this.childColumnsLength[smalleast] += 1;
+	
 }
 /**
  * 判断最小的列数
@@ -73,6 +81,10 @@ Gallery.prototype.addImage= function(image,childColumns) {
  */
 Gallery.prototype.getSmalleast = function(){
 	var length = this.columnNumber;
+	if(! this.isInitChildColumns){
+		this.initChildColumnsLength(length);
+		this.isInitChildColumns = true;
+	}
 	var smalleast = 0;
 	for(var i = 1; i < length; i++){
 		if(this.childColumnsLength[i] < this.childColumnsLength[i-1]){
@@ -80,4 +92,14 @@ Gallery.prototype.getSmalleast = function(){
 		}
 	}
 	return smalleast;
+}
+/**
+ * 初始化四个列的高度，初始值为0
+ * @param  {Number} length 列数
+ * @return {[type]}        [description]
+ */
+Gallery.prototype.initChildColumnsLength = function(length){
+	for(var i = 0; i < length; i++){
+	this.childColumnsLength[i] = 0;
+	}	
 }

@@ -13,11 +13,11 @@ function getDomImgs(num, lengthBase, widthBase, colors) {
 	var colorLen = colors.length;
 	var index = 0;
 	for (var i = 0; i < num; i++) {
-		index = Math.floor(Math.random() * colorLen);
+		// index = Math.floor(Math.random() * colorLen);
 		length = Math.round(Math.random() * lengthBase);
 		width = Math.round(Math.random() * widthBase);
 		domImgs[i] = document.createElement('img');
-		domImgs[i].src = "http://placehold.it/" + length + "/" + colors[index];
+		domImgs[i].src = "http://placehold.it/" + width + "x" + length + "/6D2E5B" ;
 	}
 	return domImgs;
 }
@@ -25,7 +25,7 @@ function getDomImgs(num, lengthBase, widthBase, colors) {
 
 function init() {
 	var colors = ['6D2E5B', '26453D', '0B1013', 'ECB88A', 'ECB88A', 'ECB88A', 'CA7853', '58B2DC', '58B2DC', 'F7C242'];
-	var domImgs = getDomImgs(20, 400, 800, colors);
+	var domImgs = getDomImgs(20, 400, 200, colors);
 	var wrap = document.querySelector('.gallery-wrap');
 	var gallery = new Gallery(domImgs, wrap, 16, 4);
 	gallery.renderImgs();

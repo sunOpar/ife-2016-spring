@@ -5,10 +5,12 @@
 }
 img{
 	vertical-align: top;
-	margin:16px;
+	/*margin:16px;*/
+	margin-bottom: 5px;
+	width: 205px;
 }
 .col{
-	border: 1px solid black;
+	/*border: 1px solid black;*/
 	display: inline-block;
-	height: 100px;
+	height: 100%;
 }
