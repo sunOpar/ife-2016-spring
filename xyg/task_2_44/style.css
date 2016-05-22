@@ -2,6 +2,7 @@
 	width: 900px;
 	margin: auto;
 	border:1px solid red;
+	overflow-x: auto;
 }
 img{
 	vertical-align: top;
@@ -12,5 +13,6 @@ img{
 .col{
 	/*border: 1px solid black;*/
 	display: inline-block;
+	float: left;
 	height: 100%;
 }
