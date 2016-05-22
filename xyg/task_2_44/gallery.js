@@ -75,7 +75,7 @@ Gallery.prototype.addChild = function(ancestor, columWidth) {
 Gallery.prototype.addImage = function(image, childColumns,imgWidth, childColumns) {
 		var smalleast = this.getSmalleast();
 		// console.log(childColumns[smalleast].style.height);
-		if (this.count < 20) {
+		if (this.count < 3) {
 			childColumns[smalleast].appendChild(image);
 			this.childColumnsLength[smalleast]++;
 			this.count++;
