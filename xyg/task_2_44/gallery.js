@@ -4,7 +4,6 @@
  * @param {node}   wrap           布局的包裹层
  * @param {Number} gap            图片的margin值
  * @param {number} columnNumber   图片的列数
- * @param {number} wrapWidth      包裹层的宽度
  */
 function Gallery(domImgs, wrap, gap, columnNumber) {
 	this.domImgs = domImgs;
@@ -14,8 +13,9 @@ function Gallery(domImgs, wrap, gap, columnNumber) {
 	this.wrapWidth = this.wrap.clientWidth;
 	this.childColumnsLength = [];
 	this.isInitChildColumns = false;
-	this.count = 0;
-	this.countI = 0;
+	this.count = 0;             
+	this.isLoadFirstImage = false;
+
 }
 /**
  * 负责渲染图片的css样式，并且将图片循环渲染到页面
@@ -25,16 +25,12 @@ function Gallery(domImgs, wrap, gap, columnNumber) {
  * @return {[type]}          [description]
  */
 Gallery.prototype.renderStyle = function(imgWidth, childColumns) {
-
-	var j = this.domImgs.length;
-	// for (var i = 0; i < j; i++) {
-	// 	this.domImgs[i].style.width = imgWidth + "px;";
-	// 	this.addImage(this.domImgs[i], childColumns);
-	// }
-	if (this.countI < j) {
-		this.domImgs[this.countI].style.width = imgWidth + "px;";
-		this.addImage(this.domImgs[this.countI], childColumns,imgWidth, childColumns);
-
+	if(this){
+		var j = this.domImgs.length;
+		for (var i = 0; i < j; i++) {
+			this.domImgs[i].style.width = imgWidth + "px;";
+			this.addImage(this.domImgs[i], childColumns,imgWidth);
+		}
 	}
 };
 /**
@@ -72,39 +68,37 @@ Gallery.prototype.addChild = function(ancestor, columWidth) {
  * @param {Node} image         被加到页面的img元素
  * @param {Node} childColumns  父包裹层的子列
  */
-Gallery.prototype.addImage = function(image, childColumns,imgWidth, childColumns) {
-		var smalleast = this.getSmalleast();
+Gallery.prototype.addImage = function(image, childColumns,imgWidth) {
+	if(this){
+	var smalleast = this.getSmalleast();
+		var _this = this;
 		// console.log(childColumns[smalleast].style.height);
-		if (this.count < 3) {
+		if (this.count < 1) {
 			childColumns[smalleast].appendChild(image);
-			this.childColumnsLength[smalleast]++;
 			this.count++;
-			this.countI++;
-			this.renderStyle(imgWidth, childColumns,this.countI);
 		} else {
 			image.onload=function() {
+				if(! _this.isLoadFirstImage){
+					var prevImage = document.querySelector('img');
+					// alert(prevImage.height);
+					_this.childColumnsLength[0] = prevImage.clientHeight;	
+					_this.isLoadFirstImage = true;
+				}
+				
+				var smalleast = _this.getSmalleast();
 				childColumns[smalleast].appendChild(image);
-
 				console.log(image.clientHeight);
-				console.log(image.height);
-				console.log(image.offectHeight);
 				var height = image.clientHeight;
-				this.childColumnsLength[smalleast] += height;
-				this.countI++;
-				this.renderStyle(imgWidth, childColumns,this.countI);
+				_this.childColumnsLength[smalleast] += height;
 			};
 		}
-
-		console.log(childColumns[smalleast].clientHeight);
-		// console.log(childColumns[smalleast].offsetHeight);
-		// 延迟50ms获取图片高度
-
-
 	}
-	/**
-	 * 判断最小的列数
-	 * @return {Number} 返回最小列数的数组下标
-	 */
+
+}
+/**
+ * 判断最小的列数
+ * @return {Number} 返回最小列数的数组下标
+ */
 Gallery.prototype.getSmalleast = function() {
 		var length = this.columnNumber;
 		if (!this.isInitChildColumns) {
@@ -113,7 +107,7 @@ Gallery.prototype.getSmalleast = function() {
 		}
 		var smalleast = 0;
 		for (var i = 1; i < length; i++) {
-			if (this.childColumnsLength[i] < this.childColumnsLength[i - 1]) {
+			if (this.childColumnsLength[i] < this.childColumnsLength[smalleast]) {
 				smalleast = i;
 			}
 		}
