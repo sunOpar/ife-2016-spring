@@ -89,7 +89,8 @@ Gallery.prototype.addImage = function(image, childColumns,imgWidth) {
 			childColumns[smalleast].appendChild(image);
 			var height = image.clientHeight;
 			_this.childColumnsLength[smalleast] += height;
-		};
+			this.count++;
+		}
 	}
 }
 /**
