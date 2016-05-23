@@ -40,5 +40,6 @@ http://www.sunopar.com/ife-2016-spring/xyg/task_2_19/
 3. 相册拼图布局，涉及到原型对象，面向对象的编程
 http://www.sunopar.com/ife-2016-spring/xyg/task_2_43/
 4. 瀑布流布局，封装为一个库，只需向里面传送图片，给定图片包裹层，每列间隔以及列数，便会自动生成瀑布流。涉及到闭包，面向对象的编程，并与之前相比更加注重函数的最佳实践，即每个函数只做一件事情，增加了代码的可维护性。
-http://www.sunopar.com/ife-2016-spring/xyg/task_2_43/
-**未完待续**
+http://www.sunopar.com/ife-2016-spring/xyg/task_2_44/
+
+***未完待续***
