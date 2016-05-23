@@ -25,12 +25,10 @@ function Gallery(domImgs, wrap, gap, columnNumber) {
  * @return {[type]}          [description]
  */
 Gallery.prototype.renderStyle = function(imgWidth, childColumns) {
-	if(this){
-		var j = this.domImgs.length;
-		for (var i = 0; i < j; i++) {
-			this.domImgs[i].style.width = imgWidth + "px;";
-			this.addImage(this.domImgs[i], childColumns,imgWidth);
-		}
+	var j = this.domImgs.length;
+	for (var i = 0; i < j; i++) {
+		this.domImgs[i].style.width = imgWidth + "px;";
+		this.addImage(this.domImgs[i], childColumns,imgWidth);
 	}
 };
 /**
@@ -69,31 +67,30 @@ Gallery.prototype.addChild = function(ancestor, columWidth) {
  * @param {Node} childColumns  父包裹层的子列
  */
 Gallery.prototype.addImage = function(image, childColumns,imgWidth) {
-	if(this){
 	var smalleast = this.getSmalleast();
-		var _this = this;
-		// console.log(childColumns[smalleast].style.height);
-		if (this.count < 1) {
+	var _this = this;
+	// console.log(childColumns[smalleast].style.height);
+	if (this.count < 1) {
+		childColumns[smalleast].appendChild(image);
+		this.count++;
+	} else {
+		image.onload=function() {
+			if(! _this.isLoadFirstImage){
+				var prevImage = document.querySelector('img');
+				console.log(prevImage);
+				console.log(prevImage.clientHeight);
+				// alert(prevImage.height);
+				_this.childColumnsLength[0] = prevImage.clientHeight;	
+				console.log(_this.childColumnsLength[0]);
+				_this.isLoadFirstImage = true;
+			}
+			
+			var smalleast = _this.getSmalleast();
 			childColumns[smalleast].appendChild(image);
-			this.count++;
-		} else {
-			image.onload=function() {
-				if(! _this.isLoadFirstImage){
-					var prevImage = document.querySelector('img');
-					// alert(prevImage.height);
-					_this.childColumnsLength[0] = prevImage.clientHeight;	
-					_this.isLoadFirstImage = true;
-				}
-				
-				var smalleast = _this.getSmalleast();
-				childColumns[smalleast].appendChild(image);
-				console.log(image.clientHeight);
-				var height = image.clientHeight;
-				_this.childColumnsLength[smalleast] += height;
-			};
-		}
+			var height = image.clientHeight;
+			_this.childColumnsLength[smalleast] += height;
+		};
 	}
-
 }
 /**
  * 判断最小的列数
