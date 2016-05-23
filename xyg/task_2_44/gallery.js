@@ -77,12 +77,17 @@ Gallery.prototype.addImage = function(image, childColumns,imgWidth) {
 			childColumns[smalleast].appendChild(image);
 			this.count++;
 		} else {
-			image.onload=function() {
+			image.onload = function() {
 				if(! _this.isLoadFirstImage){
 					var prevImage = document.querySelector('img');
-					// alert(prevImage.height);
-					_this.childColumnsLength[0] = prevImage.clientHeight;	
+					_this.childColumnsLength[0] = prevImage.clientHeight;
+					while(_this.childColumnsLength[0] === 0){
+						var prevImage = document.querySelector('img');
+						_this.childColumnsLength[0] = prevImage.clientHeight;
+
+					}
 					_this.isLoadFirstImage = true;
+					console.log(_this.childColumnsLength[0]);
 				}
 				
 				var smalleast = _this.getSmalleast();
@@ -90,6 +95,7 @@ Gallery.prototype.addImage = function(image, childColumns,imgWidth) {
 				console.log(image.clientHeight);
 				var height = image.clientHeight;
 				_this.childColumnsLength[smalleast] += height;
+				console.log(_this.childColumnsLength);
 			};
 		}
 	}
