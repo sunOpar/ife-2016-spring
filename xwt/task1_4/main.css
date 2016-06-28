@@ -1,0 +1,32 @@
+*{padding: 0;marigin:0;}
+
+.main{
+	width: 400px;
+	height: 200px;
+	background: #ccc;
+	overflow: hidden;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+}
+
+.circle{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background: #fc0;
+}
+.one{
+	position: absolute;
+	left: -50px;
+	top: -50px;
+}
+.two{
+	position: absolute;
+	bottom: -50px;
+	right: -50px;
+}
