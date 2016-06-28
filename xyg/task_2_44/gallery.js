@@ -15,7 +15,6 @@ function Gallery(domImgs, wrap, gap, columnNumber) {
 	this.isInitChildColumns = false;
 	this.count = 0;             
 	this.isLoadFirstImage = false;
-
 }
 /**
  * 负责渲染图片的css样式，并且将图片循环渲染到页面
@@ -69,36 +68,25 @@ Gallery.prototype.addChild = function(ancestor, columWidth) {
  * @param {Node} childColumns  父包裹层的子列
  */
 Gallery.prototype.addImage = function(image, childColumns,imgWidth) {
-	if(this){
 	var smalleast = this.getSmalleast();
 		var _this = this;
 		// console.log(childColumns[smalleast].style.height);
-		if (this.count < 1) {
+		image.onload = function() {
+			if(! _this.isLoadFirstImage){
+				var prevImage = document.querySelector('img');
+				childColumns[0].appendChild(prevImage);
+				_this.childColumnsLength[0] = prevImage.clientHeight;
+				_this.isLoadFirstImage = true;
+				console.log(_this.childColumnsLength[0]);
+			}
+			
+			var smalleast = _this.getSmalleast();
 			childColumns[smalleast].appendChild(image);
-			this.count++;
-		} else {
-			image.onload = function() {
-				if(! _this.isLoadFirstImage){
-					var prevImage = document.querySelector('img');
-					_this.childColumnsLength[0] = prevImage.clientHeight;
-					while(_this.childColumnsLength[0] === 0){
-						var prevImage = document.querySelector('img');
-						_this.childColumnsLength[0] = prevImage.clientHeight;
-
-					}
-					_this.isLoadFirstImage = true;
-					console.log(_this.childColumnsLength[0]);
-				}
-				
-				var smalleast = _this.getSmalleast();
-				childColumns[smalleast].appendChild(image);
-				console.log(image.clientHeight);
-				var height = image.clientHeight;
-				_this.childColumnsLength[smalleast] += height;
-				console.log(_this.childColumnsLength);
-			};
-		}
-	}
+			// console.log(image.clientHeight);
+			var height = image.clientHeight;
+			_this.childColumnsLength[smalleast] += height;
+			// console.log(_this.childColumnsLength);
+		};
 
 }
 /**
@@ -129,3 +117,13 @@ Gallery.prototype.initChildColumnsLength = function(length) {
 		this.childColumnsLength[i] = 0;
 	}
 }
+Gallery.prototype.addScrollLoad = function(wrap) {
+	EventUtil.addHandler(window,'scroll',function(e){
+		if(document.body.scrollHeight-window.innerHeight==document.body.scrollTop){
+			ajaxLoad(wrap);
+		}
+	});
+	function ajaxLoad(wrap){
+		var xmlhttp = new XMLHttpRequest();
+	}
+};
