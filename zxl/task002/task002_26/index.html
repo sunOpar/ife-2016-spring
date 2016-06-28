@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>行星与飞船（一）</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+    <main>
+        <canvas id="canvas" width="800" height="800"></canvas>
+        <section class="show-wrap">
+            <aside class="god-panel">
+                <h3>上帝视角面板</h3>
+                <div class="god-message">
+                    <p>数据读取中. . .</p>
+                </div>
+            </aside>
+            <aside class="command-panel">
+                <h3>指挥官视角面板</h3>
+                <div class="command-message">
+                    <div class="airshp0">
+                        <span>0号飞船: </span>
+                        <span>未创建</span>
+                        <span>未飞行</span>
+                    </div>
+                    <div class="airshp1">
+                        <span>1号飞船: </span>
+                        <span>未创建</span>
+                        <span>未飞行</span>
+                    </div>
+                    <div class="airshp2">
+                        <span>2号飞船: </span>
+                        <span>未创建</span>
+                        <span>未飞行</span>
+                    </div>
+                    <div class="airshp3">
+                        <span>3号飞船: </span>
+                        <span>未创建</span>
+                        <span>未飞行</span>
+                    </div>
+                </div>
+            </aside>
+            <aside class="command-console">
+                <h3>指挥官控制台</h3>
+                <div class="orbit0">
+                    <span>轨道0 :</span>
+                    <input type="button" name="orbit0-create" value="创建飞船">
+                    <input type="button" name="orbit0-flight" value="开始飞行">
+                    <input type="button" name="orbit0-stop" value="停止飞行">
+                    <input type="button" name="orbit0-boom" value="销毁飞船">
+                </div>
+                <div class="orbit1">
+                    <span>轨道1 :</span>
+                    <input type="button" name="orbit1-create" value="创建飞船">
+                    <input type="button" name="orbit1-flight" value="开始飞行">
+                    <input type="button" name="orbit1-stop" value="停止飞行">
+                    <input type="button" name="orbit1-boom" value="销毁飞船">
+                </div>
+                <div class="orbit2">
+                    <span>轨道2 :</span>
+                    <input type="button" name="orbit2-create" value="创建飞船">
+                    <input type="button" name="orbit2-flight" value="开始飞行">
+                    <input type="button" name="orbit2-stop" value="停止飞行">
+                    <input type="button" name="orbit2-boom" value="销毁飞船">
+                </div>
+                <div class="orbit3">
+                    <span>轨道3 :</span>
+                    <input type="button" name="orbit3-create" value="创建飞船">
+                    <input type="button" name="orbit3-flight" value="开始飞行">
+                    <input type="button" name="orbit3-stop" value="停止飞行">
+                    <input type="button" name="orbit3-boom" value="销毁飞船">
+                </div>
+            </aside>
+            <aside class="create-wrap">
+                <h4>新建飞船</h4>
+                <div class="power">
+                    <span>动力系统:
+                        <br>
+                        <input type="radio" name="power-radio" >奇点（相对速度：1，能耗：5）
+                        <br>
+                        <input type="radio" name="power-radio" >碎星（相对速度：2，能耗：7）
+                        <br>
+                        <input type="radio" name="power-radio" >闪烁（相对速度：3，能耗：9）
+                    </span>
+                </div>
+                <div class="energy">
+                    <span>能源系统:
+                        <br>
+                        <input type="radio" name="energy-radio" >古筝（动力恢复速度：2）
+                        <br>
+                        <input type="radio" name="energy-radio" >夏（动力恢复速度：3）
+                        <br>
+                        <input type="radio" name="energy-radio" >水滴（动力恢复速度：4）
+                    </span>
+                </div>
+                <div class="btns">
+                    <input type="button" name="create-airship" value="创建飞船">
+                    <input type="button" name="cancel" value="取 消">
+                </div>
+            </aside>
+        </section>
+    </main>
+
+
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
+    <script src="js/main.js" charset="utf-8"></script>
+    <script src="js/control.js" charset="utf-8"></script>
+</body>
+</html>

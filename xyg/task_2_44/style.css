@@ -1,0 +1,21 @@
+.gallery-wrap{
+	width: 1280px;
+	margin: auto;
+	/*border:1px solid red;*/
+	overflow-x: auto;
+	/*padding-left: 10px;*/
+}
+img{
+	vertical-align: top;
+	/*margin:16px;*/
+	margin-bottom: 16px;
+	width: 287px;
+	padding: 0 0 20px 0;
+	border: 1px solid #ccc;
+	/*border-radius: 5px;*/
+}
+.col{
+	display: inline-block;
+	float: left;
+	height: 100%;
+}
