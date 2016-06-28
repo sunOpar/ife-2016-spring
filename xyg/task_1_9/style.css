@@ -111,14 +111,14 @@ a{
 }
 /*每一个文件夹布局*/
 .line{
-	margin-top: 10px;
+	margin-top: 15px;
 }
 /*连续两个margin-left让文件夹层级位移*/
 .report>div{
 	margin-left: 30px;
 }
 .line>div{
-	margin-left: 30px;
+	margin-left: 40px;
 }
 .line2{
 	padding: 15px 45px;
@@ -333,6 +333,10 @@ a{
     border-radius: 5px 5px 0 0;
 
       
+}
+.project-wrap-1 td:hover,
+.project-wrap-1 .table-hover{
+	background-color: rgb(244,245,247);
 }
 .project-wrap li:hover,
 .project-wrap .first-pro{
