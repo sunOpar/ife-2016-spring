@@ -17,7 +17,7 @@ function getDomImgs(num, widths, heights, colors) {
 		width = widths[Math.round(Math.random() * (widths.length-1))];
 		length = heights[Math.round(Math.random() * (heights.length-1))];
 		domImgs[i] = document.createElement('img');
-		domImgs[i].src = "http://placehold.it/" + width + "x" + length + "/6D2E5B";
+		domImgs[i].src = "http://placehold.it/" + width + "x" + length + "/"+colors[Math.floor(Math.random()*10)];
 	}
 	return domImgs;
 }
@@ -29,7 +29,8 @@ function init() {
 	var heights = [160,120,140,160,200];
 	var domImgs = getDomImgs(50, widths, heights, colors);
 	var wrap = document.querySelector('.gallery-wrap');
-	var gallery = new Gallery(domImgs, wrap, 16, 4);
+	var gallery = new Gallery(domImgs, wrap, 26, 4);
 	gallery.renderImgs();
+	gallery.ajaxLoad(wrap);
 }
 addLoadEvent(init);

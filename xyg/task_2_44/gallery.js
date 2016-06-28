@@ -15,7 +15,6 @@ function Gallery(domImgs, wrap, gap, columnNumber) {
 	this.isInitChildColumns = false;
 	this.count = 0;             
 	this.isLoadFirstImage = false;
-
 }
 /**
  * 负责渲染图片的css样式，并且将图片循环渲染到页面
@@ -68,30 +67,25 @@ Gallery.prototype.addChild = function(ancestor, columWidth) {
  */
 Gallery.prototype.addImage = function(image, childColumns,imgWidth) {
 	var smalleast = this.getSmalleast();
-	var _this = this;
-	// console.log(childColumns[smalleast].style.height);
-	if (this.count < 1) {
-		childColumns[smalleast].appendChild(image);
-		this.count++;
-	} else {
-		image.onload=function() {
+		var _this = this;
+		// console.log(childColumns[smalleast].style.height);
+		image.onload = function() {
 			if(! _this.isLoadFirstImage){
 				var prevImage = document.querySelector('img');
-				console.log(prevImage);
-				console.log(prevImage.clientHeight);
-				// alert(prevImage.height);
-				_this.childColumnsLength[0] = prevImage.clientHeight;	
-				console.log(_this.childColumnsLength[0]);
+				childColumns[0].appendChild(prevImage);
+				_this.childColumnsLength[0] = prevImage.clientHeight;
 				_this.isLoadFirstImage = true;
+				console.log(_this.childColumnsLength[0]);
 			}
 			
 			var smalleast = _this.getSmalleast();
 			childColumns[smalleast].appendChild(image);
+			// console.log(image.clientHeight);
 			var height = image.clientHeight;
 			_this.childColumnsLength[smalleast] += height;
-			this.count++;
-		}
-	}
+			// console.log(_this.childColumnsLength);
+		};
+
 }
 /**
  * 判断最小的列数
@@ -121,3 +115,13 @@ Gallery.prototype.initChildColumnsLength = function(length) {
 		this.childColumnsLength[i] = 0;
 	}
 }
+Gallery.prototype.addScrollLoad = function(wrap) {
+	EventUtil.addHandler(window,'scroll',function(e){
+		if(document.body.scrollHeight-window.innerHeight==document.body.scrollTop){
+			ajaxLoad(wrap);
+		}
+	});
+	function ajaxLoad(wrap){
+		var xmlhttp = new XMLHttpRequest();
+	}
+};
