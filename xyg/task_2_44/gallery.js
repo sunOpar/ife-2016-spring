@@ -15,6 +15,8 @@ function Gallery(domImgs, wrap, gap, columnNumber) {
 	this.isInitChildColumns = false;
 	this.count = 0;             
 	this.isLoadFirstImage = false;
+	this.colWidth = Math.floor((this.wrapWidth - (this.columnNumber + 1) * this.gap) / this.columnNumber);
+	this.childColumns = this.addChild(this.wrap, this.colWidth);
 }
 /**
  * 负责渲染图片的css样式，并且将图片循环渲染到页面
@@ -23,11 +25,11 @@ function Gallery(domImgs, wrap, gap, columnNumber) {
  * @param {Number}   i               为了循环做准备，初始数字为0.
  * @return {[type]}          [description]
  */
-Gallery.prototype.renderStyle = function(imgWidth, childColumns) {
-	var j = this.domImgs.length;
-	for (var i = 0; i < j; i++) {
-		this.domImgs[i].style.width = imgWidth + "px;";
-		this.addImage(this.domImgs[i], childColumns,imgWidth);
+Gallery.prototype.renderStyle = function(domImgs) {
+		var j = domImgs.length;
+		for (var i = 0; i < j; i++) {
+			domImgs[i].style.width = this.colWidth + "px;";
+			this.addImage(domImgs[i], this.childColumns,this.colWidth);
 	}
 };
 /**
@@ -35,11 +37,8 @@ Gallery.prototype.renderStyle = function(imgWidth, childColumns) {
  * @return {[type]} [description]
  */
 Gallery.prototype.renderImgs = function() {
-	var colWidth = Math.floor((this.wrapWidth - (this.columnNumber + 1) * this.gap) / this.columnNumber);
-	var childColumns = this.addChild(this.wrap, colWidth);
-	this.renderStyle(colWidth, childColumns);
-	// this.addImage(this.domImgs,childColumns);
 
+	this.renderStyle(this.domImgs);
 };
 /**
  * 为给定包裹层添加子列，将子列的class设为.col,并返回子列
@@ -68,22 +67,20 @@ Gallery.prototype.addChild = function(ancestor, columWidth) {
 Gallery.prototype.addImage = function(image, childColumns,imgWidth) {
 	var smalleast = this.getSmalleast();
 		var _this = this;
-		// console.log(childColumns[smalleast].style.height);
 		image.onload = function() {
 			if(! _this.isLoadFirstImage){
 				var prevImage = document.querySelector('img');
 				childColumns[0].appendChild(prevImage);
 				_this.childColumnsLength[0] = prevImage.clientHeight;
 				_this.isLoadFirstImage = true;
-				console.log(_this.childColumnsLength[0]);
+				console.log('列宽为'+_this.childColumnsLength[0]);
+				_this.addScrollLoad(_this.wrap,_this);
 			}
 			
 			var smalleast = _this.getSmalleast();
 			childColumns[smalleast].appendChild(image);
-			// console.log(image.clientHeight);
 			var height = image.clientHeight;
 			_this.childColumnsLength[smalleast] += height;
-			// console.log(_this.childColumnsLength);
 		};
 
 }
@@ -115,13 +112,36 @@ Gallery.prototype.initChildColumnsLength = function(length) {
 		this.childColumnsLength[i] = 0;
 	}
 }
-Gallery.prototype.addScrollLoad = function(wrap) {
+Gallery.prototype.addScrollLoad = function(wrap,_this) {
 	EventUtil.addHandler(window,'scroll',function(e){
-		if(document.body.scrollHeight-window.innerHeight==document.body.scrollTop){
-			ajaxLoad(wrap);
-		}
-	});
-	function ajaxLoad(wrap){
-		var xmlhttp = new XMLHttpRequest();
+	console.log(document.body.scrollHeight-window.innerHeight==document.body.scrollTop);
+	if(document.body.scrollHeight-window.innerHeight==document.body.scrollTop){
+		ajaxLoad(wrap,_this);
 	}
+	});
+	function ajaxLoad(wrap,_this){
+		var request = new XMLHttpRequest();
+		var newImgSrc = '';
+		request.open("GET","service.php?act=true");
+		request.send();
+		request.onreadystatechange=function(){
+			console.log(request.readyState);
+			console.log(request.status);
+			if(request.readyState === 4 && request.status === 200){
+				newImgSrc = JSON.parse(request.responseText);
+				if(newImgSrc.sucess){
+					var imgs = createDomImgs(10,newImgSrc.imgSrc);
+					_this.renderStyle(imgs);
+				}
+			}
+		}
+	}
+	function createDomImgs(num, src) {
+	var domImgs = [];
+	for (var i = 0; i < num; i++) {
+		domImgs[i] = document.createElement('img');
+		domImgs[i].src = src[Math.floor(Math.random()*12)];
+	}
+	return domImgs;
+}
 };
