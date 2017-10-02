@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.table-wrap {
+    position: relative;
+    width: 550px;
+    height: 550px;
+    margin: 0 auto;
+}
+.checker-table {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-collapse:collapse;
+}
+.checker-table th,
+.checker-table td {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    box-sizing: border-box;
+}
+.checker-table td {
+    border: 1px solid #CCC;
+    margin: 0;
+    padding: 0;
+}
+.checker-table tr td:first-child {
+    border: none;
+}
+.block {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    background-color: #22C3AA;
+    -webkit-transition: .5s all;
+    transition: .5s all;
+}
+.block::before {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 15px;
+    background-color: #666699;
+}
+.inputs,
+.btns {
+    min-width: 550px;
+    margin-top: 20px;
+    text-align: center;
+}
+.inputs input:first-child {
+    width: 180px;
+    height: 20px;
+    border: 1px solid #22C3AA;
+}
+.inputs input:last-child,
+.btns button {
+    width: 80px;
+    line-height: 20px;
+    margin-left: 20px;
+    border: 1px solid #999;
+    background-color: #22C3AA;
+    color: #FFF;
+}
